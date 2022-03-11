@@ -3,6 +3,7 @@ package ci.komobe.demoddd.infrastructure.mapper;
 import ci.komobe.demoddd.core.domain.entite.Client;
 import ci.komobe.demoddd.infrastructure.entity.ClientEntity;
 import ci.komobe.demoddd.infrastructure.mapper.factory.ClientFactory;
+import org.mapstruct.Context;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -14,8 +15,8 @@ import org.mapstruct.Mapping;
 public interface ClientMapper {
 
   @Mapping(target = "genreType", ignore = true)
-  ClientEntity toEntity(Client client);
+  ClientEntity toEntity(Client client, @Context CycleAvoidingMappingContext context);
 
   @InheritInverseConfiguration
-  Client toDomain(ClientEntity clientEntity);
+  Client toDomain(ClientEntity clientEntity, @Context CycleAvoidingMappingContext context);
 }

@@ -2,6 +2,7 @@ package ci.komobe.demoddd.infrastructure.mapper;
 
 import ci.komobe.demoddd.core.domain.entite.Employe;
 import ci.komobe.demoddd.infrastructure.entity.EmployeEntity;
+import org.mapstruct.Context;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -13,9 +14,8 @@ import org.mapstruct.Mapping;
 public interface EmployeMapper {
 
   @Mapping(target = "genreType", ignore = true)
-  @Mapping(target = "clients", source = "clients", ignore = true)
-  EmployeEntity toEntity(Employe employe);
+  EmployeEntity toEntity(Employe employe, @Context CycleAvoidingMappingContext context);
 
   @InheritInverseConfiguration
-  Employe toDomain(EmployeEntity employeEntity);
+  Employe toDomain(EmployeEntity employeEntity, @Context CycleAvoidingMappingContext context);
 }
