@@ -6,7 +6,6 @@ import ci.komobe.demoddd.core.domain.objetvaleur.Genre;
 import ci.komobe.demoddd.core.domain.objetvaleur.Genre.Type;
 import ci.komobe.demoddd.core.domain.objetvaleur.TypeEmploye;
 import ci.komobe.demoddd.infrastructure.entity.BanqueEntity;
-import ci.komobe.demoddd.infrastructure.mapper.factory.BanqueFactory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,8 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
  * @author Moro KONÉ 2022-03-11
  */
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {BanqueMapperImpl.class, EmployeMapperImpl.class,
-    BanqueFactory.class})
+@ContextConfiguration(classes = {BanqueMapperImpl.class, EmployeMapperImpl.class})
 class BanqueMapperTest {
 
   @Autowired
